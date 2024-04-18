@@ -1,0 +1,13 @@
+.bgcolor{
+    min-height: 100vh;
+    background-color: whitesmoke;
+    
+}
+
+.Avialable-row{
+    color: green; 
+}
+
+.Occupied-row{
+    color: red; 
+}
