@@ -336,4 +336,3 @@ export default function BudgetTracker(){
     )
 
 }
-BudgetTracker.displayName = 'BudgetTracker';

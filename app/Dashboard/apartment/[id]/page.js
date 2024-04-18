@@ -284,4 +284,3 @@ export default function RoomsComponent(){
         </>
     )
 }
-RoomsComponent.displayName = 'RoomsComponent';
