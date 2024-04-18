@@ -108,6 +108,7 @@ export default function Sidebar() {
     const windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
     console.log(windowHeight);
 
+
     // -------------CLOSNG--------------
 
     return (

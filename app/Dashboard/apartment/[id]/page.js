@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Navbar from "../../navbar";
-import {Button, Grid, Card, CardActionArea, CardActions, CardHeader, CardContent, ListItemIcon, Avatar, Box, Typography, TextField, FormControl, Select, MenuItem, InputLabel, Paper, Chip} from '@mui/material';
+import {Button, Grid, Box, Typography, TextField, FormControl, Select, MenuItem, InputLabel, Paper, Chip} from '@mui/material';
 import { DataGrid  } from '@mui/x-data-grid';
 import PropTypes from 'prop-types';
 import { styled, css } from '@mui/system';
@@ -13,8 +13,7 @@ import '/app/style.css'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
-// import Tab from '../../tab/page';
-import Dashboard from '../../page';
+
 import Sidebar from '../../sidebar';
 
 
@@ -147,7 +146,6 @@ import Sidebar from '../../sidebar';
 
 
 export default function RoomsComponent(){
-    // const history = useHistory();
     const router = useRouter();
     const [open, setOpen] = useState(false);
     const [selectedTab, setSelectedTab] = React.useState('rooms'); // default tab
@@ -285,4 +283,5 @@ export default function RoomsComponent(){
         
         </>
     )
-}        
+}
+RoomsComponent.displayName = 'RoomsComponent';

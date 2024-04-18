@@ -1,7 +1,7 @@
 'use client'
 import React from "react"
 import Navbar from "../navbar"
-import {Grid, Card, CardActionArea, CardHeader, CardContent, ListItemIcon, Avatar, styled, Box, Typography, Paper} from '@mui/material';
+import {Grid, Card, CardActionArea, CardHeader, CardContent, ListItemIcon, Box, Typography,} from '@mui/material';
 import GroupOutlinedIcon from '@mui/icons-material/Group';
 import ApartmentOutlinedIcon from '@mui/icons-material/ApartmentOutlined';
 import NightShelterOutlinedIcon from '@mui/icons-material/NightShelterOutlined';

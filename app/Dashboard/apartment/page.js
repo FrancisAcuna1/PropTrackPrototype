@@ -3,12 +3,12 @@ import  React from 'react';
 import { useState } from 'react';
 import Navbar from '../navbar';
 import Sidebar from '../sidebar';
-import {Button, Grid, Card, CardActionArea, CardActions, CardHeader, CardContent, ListItemIcon, Avatar, Box, Typography, TextField, Paper} from '@mui/material';
+import {Button, Grid, Box, Typography, TextField, Paper} from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import HouseIcon from '@mui/icons-material/House';
 import { useRouter } from 'next/navigation';
 import PropTypes from 'prop-types';
-import { styled, css, display } from '@mui/system';
+import { styled, css, } from '@mui/system';
 import { Modal as BaseModal } from '@mui/base/Modal';
 import Fade from '@mui/material/Fade';
 import { useTheme } from '@mui/material/styles';
@@ -341,3 +341,4 @@ export default function AddApartment(){
         </>
     )
 }
+AddApartment.displayName = 'AddApartment';
