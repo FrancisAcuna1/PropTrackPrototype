@@ -6,7 +6,6 @@ import LockPersonIcon from "@mui/icons-material/LockPerson";
 export default function LoginPage() {
   return (
     <>
-     <h3>Log in</h3>
       <Grid container spacing={2}>
         <Grid item xs={12}>
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", }}   >
