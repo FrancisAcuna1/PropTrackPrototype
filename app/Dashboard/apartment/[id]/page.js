@@ -227,7 +227,7 @@ export default function RoomsComponent(){
                             <Grid item>
                               <Button variant="contained" onClick={handleOpen} sx={{background: '#673ab7','&:hover': {backgroundColor: '#9575cd',}, marginLeft: '20px', marginRight: '20px', borderRadius: '20px'}}>
                                 <AddCircleIcon sx={{ marginRight: 1 }} />
-                                  Add Expenses
+                                  Add Rooms
                               </Button>
                               <Modal
                                 aria-labelledby="transition-modal-title"
@@ -239,7 +239,7 @@ export default function RoomsComponent(){
                               >
                                 <Fade in={open}>
                                   <ModalContent sx={style}>
-                                    <Typography variant="h5" letterSpacing={2} gutterBottom sx={{fontWeight: 550,}}>Apartment Bills</Typography>
+                                    <Typography variant="h5" letterSpacing={2} gutterBottom sx={{fontWeight: 500,}}>Add Rooms</Typography>
                                     <TextField required label="Room No." fullWidth margin="normal" />
                                     <TextField required label="Monthly Rate" type="number" fullWidth margin="normal" />
                                     <FormControl fullWidth margin="normal">
