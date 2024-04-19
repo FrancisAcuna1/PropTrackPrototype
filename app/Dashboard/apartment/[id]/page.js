@@ -246,10 +246,10 @@ export default function RoomsComponent(){
                                     <InputLabel required>Status</InputLabel>
                                     <Select>
                                         <MenuItem value={1}>Avialable</MenuItem>
-                                        <MenuItem hidden={true} value={2}>Occupied</MenuItem>
+                                        {/* <MenuItem hidden={true} value={2}>Occupied</MenuItem> */}
                                     </Select>
                                     </FormControl>
-                                    <TextField id="outlined-read-only-input" label="Tenant Name" type='text' defaultValue="Hello World" InputProps={{readOnly: true,}}/>
+                                    <TextField id="outlined-read-only-input" label="Tenant Name" type='text' defaultValue="Tenant Name" InputProps={{readOnly: true,}}/>
                                     <TextField  id="contact" label="Tenant Contact No." defaultValue="Tenant Contact No."  variant="outlined" InputProps={{readOnly: true,}} fullWidth margin="normal"/>
                                     <Button variant="contained" fullWidth style={{ fontSize: '16px', marginTop: '10px', borderRadius: '20px', padding:'10px', background: '#673ab7','&:hover': {backgroundColor: '#9575cd',}, }}>Submit</Button>
                                   </ModalContent>
