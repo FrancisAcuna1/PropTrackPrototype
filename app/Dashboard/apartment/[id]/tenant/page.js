@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import Navbar from "@/app/Dashboard/navbar";
 import React from "react";
 

@@ -11,66 +11,26 @@ import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import TrendingDownOutlinedIcon from "@mui/icons-material/TrendingDownOutlined";
 import CustomerTable from "../component/customer";
 import Sidebar from "../sidebar";
-import Chart from "react-apexcharts";
+import dynamic from 'next/dynamic';
+// import Chart from "react-apexcharts";
 import RoomList from "../component/roomlist";
+// import IncomeChart from "../component/income";
+// import ExpenseChart from "../component/expenses";
 
 
+const IncomeChartHeader = dynamic(() => import('../component/income'), {
+  ssr: false
+}) 
+const ExpensesChartHeader = dynamic(() => import('../component/expenses'), {
+    ssr: false
+  }) 
+  
 
 export default function Home (){
-    const [income, setIncome] = useState({
-        options: {
-            chart: {
-                id: "basic-line",
-            },
-            xaxis: {
-                categories: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            },
-            legend: {
-                show: true,
-                position: "bottom",
-                horizontalAlign: "left",
-            }
-        },
-        series: [
-            {
-                name: "Series-1",
-                data: [5000, 6000, 4000, 10000, 12000, 5500, 3000, 4500, 5000, 7000, 6500, 6700],
-            }
-        ],
-        
-    });
-
-    const [expenses, setExpenses] = useState({
-        options: {
-            chart: {
-                id: "basic-bar",
-            },
-            xaxis: {
-                categories: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            },
-            fill: {
-                colors: ["#9575cd"],
-            },
-            legend: {
-                show: true,
-                position: "bottom",
-                horizontalAlign: "left",
-            }
-        },
-        series: [
-            {
-                name: "Series-1",
-                data: [1000, 2000, 4000, 4500, 6000, 5500, 3000, 4500, 5000, 7000, 6500, 1500],
-            }, 
-        ],
-        
-        
-    })
       
 
     return (
         <>
-       
             <Navbar/>
             <div className="bgcolor">
             <Box sx={{ flexGrow: '1', display: 'flex', marginX: '1%',}}>
@@ -170,7 +130,7 @@ export default function Home (){
                                         Income
                                     </Typography>
                                     <Paper elevation={2} sx={{'@media (max-width: 100px)': {width: 'auto'}, height: '62vh', p: 3, marginTop: '10px', justifyContent: "center", alignItems: "center", borderRadius: 3, marginLeft: '20px' }}>
-                                        <Chart options={income.options} series={income.series} type="area" height={500} />
+                                       <IncomeChartHeader/>
                                     </Paper>
                                 </Grid>
                                 {/* Expenses Chart */}
@@ -179,7 +139,7 @@ export default function Home (){
                                         Expenses
                                     </Typography>
                                     <Paper elevation={2} sx={{'@media (max-width: 100px)': {width: 'auto'}, height: '62vh', p: 2, marginTop: '10px', justifyContent: "center", alignItems: "center", borderRadius: 3, marginLeft: '20px' }}>
-                                        <Chart options={expenses.options} series={expenses.series} type="bar" height={500} />
+                                       <ExpensesChartHeader/>
                                     </Paper>
                                 </Grid>
                                 {/* Room List */}
@@ -205,7 +165,7 @@ export default function Home (){
                     </Box>
                 </Grid>
             </Box>
-          </div>    
+          </div>  
         </>
     )
 }

@@ -1,3 +1,4 @@
+"use client"
 import * as React from 'react';
 import { useState } from 'react';
 import ListItemText from '@mui/material/ListItemText';
@@ -103,6 +104,17 @@ const Overlay = styled('div')(({ theme, open }) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
 }));
+
+
+// const DynamicHeader = dynamic(() => import('./home/page'), {
+//   ssr: false
+// }) 
+// const DynamicHeader2 = dynamic(() => import('./Post/page'), {
+//   ssr: false
+// }) 
+// const DynamicHeader3 = dynamic(() => import('./Users/page'), {
+//   ssr: false
+// }) 
 
 export default function Sidebar() {
   const theme = useTheme();

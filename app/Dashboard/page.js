@@ -1,4 +1,4 @@
-"use client"
+
 import * as React from 'react';
 import Sidebar from './sidebar';
 import Navbar from './navbar';
