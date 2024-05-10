@@ -10,7 +10,7 @@ import { DataGrid  } from '@mui/x-data-grid';
 import ScheduleTable from "../../component/schedtable";
 
 
-export default function home (){
+export default function SchedMaintenance(){
       
 
     return (

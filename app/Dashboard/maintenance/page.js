@@ -4,7 +4,7 @@ import Navbar from "../navbar"
 import { Box, Grid, Paper, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem, Breadcrumbs, Link} from "@mui/material";
 import Sidebar from "../sidebar";
 import { DataGrid  } from "@mui/x-data-grid";
-export default function home (){
+export default function RequestMaintenance (){
     const rows = [
         { id: 1, col1: 'Victor Magtangol', col2: '09998273123', col3: 'Barado ang Gripo', col4: 'April 1, 2024', col5: 'Apartment no.1', col6: 'Room no.1'},
         { id: 2, col1: 'Kuya Cardo', col2: '09987231251', col3: 'Wara Ilaw', col4: 'January 5, 2024', col5: 'Apartment no.3', col6: 'Room no.2'},

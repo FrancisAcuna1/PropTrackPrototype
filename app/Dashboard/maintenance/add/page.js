@@ -15,7 +15,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 
 
-export default function Add (){
+export default function AddMaintenance(){
     const [value, setValue] = useState(dayjs('2022-04-17'));
 
     return (
