@@ -1,24 +1,22 @@
-'use client'
+"use client"
 import React from "react";
 import { useEffect, useState } from "react";
 import Navbar from "../../navbar"
 import Sidebar from "../../sidebar";
-import {Grid, Box, Typography, Paper, TextField, InputLabel, FormControl, Select, MenuItem, Button, Breadcrumbs, Link} from '@mui/material';
+import {Grid, Box, Typography, Paper, TextField, InputLabel, FormControl, Select, MenuItem, Button, Breadcrumbs, Link} from "@mui/material";
 import dayjs from 'dayjs';
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 
 
 
 
 
-export default function home (){
-    const [value, setValue] = React.useState(dayjs('2022-04-17'));
-
-      
+export default function Add (){
+    const [value, setValue] = useState(dayjs('2022-04-17'));
 
     return (
         <>

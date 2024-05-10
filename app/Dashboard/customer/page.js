@@ -1,16 +1,13 @@
-'use client'
+"use client"
 import React from "react";
 import { useEffect, useState } from "react";
 import Navbar from "../navbar";
 import Sidebar from "../sidebar";
-import { Box, Grid, Paper, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem, Breadcrumbs, Link} from '@mui/material'
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
-import { DataGrid  } from '@mui/x-data-grid';
+import { Box, Grid, Paper, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem, Breadcrumbs, Link} from "@mui/material";
 import CustomerTable from "../component/customer";
 
 
-export default function home (){
+export default function Customer(){
       
 
     return (
@@ -52,22 +49,13 @@ export default function home (){
                                         <Grid container alignItems="center" justifyContent="space-between">
                                             <Grid item>
                                                 <Typography variant="h6" letterSpacing={2} sx={{marginLeft: '20px'}} >
-                                                    List of Customer's
+                                                    List of Customers
                                                 </Typography>
                                             </Grid>
                                             <CustomerTable/>
                                         </Grid>
                                     </Paper>
                                 </Grid>
-                                {/* Customers */}
-                                {/* <Grid item xs={12} lg={5} sx={{maxWidth: '100%'}}>
-                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '18px', letterSpacing: '1px', marginTop: '25px', marginLeft: "30px" }}>
-                                        Customer's
-                                    </Typography>
-                                    <Paper elevation={2} sx={{ '@media (max-width: 100px)': {width: 'auto'}, height: '62vh', marginTop: '20px', justifyContent: "center", alignItems: "center", borderRadius: 3, marginLeft: '20px' }}>
-
-                                    </Paper>
-                                </Grid> */}
                             </Grid>
                         </Grid>
                     </Box>

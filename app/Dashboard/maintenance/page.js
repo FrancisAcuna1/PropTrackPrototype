@@ -1,14 +1,9 @@
 'use client'
 import React from "react";
-import { useEffect, useState } from "react";
 import Navbar from "../navbar"
-import { Box, Grid, Paper, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem, Breadcrumbs, Link} from '@mui/material'
+import { Box, Grid, Paper, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem, Breadcrumbs, Link} from "@mui/material";
 import Sidebar from "../sidebar";
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
-import Chart from 'react-apexcharts';
-import RoomList from '../component/roomlist';
-import { DataGrid  } from '@mui/x-data-grid';
+import { DataGrid  } from "@mui/x-data-grid";
 export default function home (){
     const rows = [
         { id: 1, col1: 'Victor Magtangol', col2: '09998273123', col3: 'Barado ang Gripo', col4: 'April 1, 2024', col5: 'Apartment no.1', col6: 'Room no.1'},

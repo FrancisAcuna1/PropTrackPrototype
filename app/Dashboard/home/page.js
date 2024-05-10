@@ -1,19 +1,22 @@
-'use client'
+"use client"
 import React from "react";
 import { useEffect, useState } from "react";
 import Navbar from "../navbar"
-import {useTheme, Grid, Card, CardActionArea, CardHeader, CardContent, ListItemIcon, Box, Typography, Paper} from '@mui/material';
-import GroupOutlinedIcon from '@mui/icons-material/Group';
-import ApartmentOutlinedIcon from '@mui/icons-material/ApartmentOutlined';
-import NightShelterOutlinedIcon from '@mui/icons-material/NightShelterOutlined';
-import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
-import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
-import TrendingDownOutlinedIcon from '@mui/icons-material/TrendingDownOutlined';
-import CustomerTable from '../component/customer';
+import {useTheme, Grid, Card, CardActionArea, CardHeader, CardContent, ListItemIcon, Box, Typography, Paper} from "@mui/material";
+import GroupOutlinedIcon from "@mui/icons-material/Group";
+import ApartmentOutlinedIcon from "@mui/icons-material/ApartmentOutlined";
+import NightShelterOutlinedIcon from "@mui/icons-material/NightShelterOutlined";
+import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
+import TrendingDownOutlinedIcon from "@mui/icons-material/TrendingDownOutlined";
+import CustomerTable from "../component/customer";
 import Sidebar from "../sidebar";
-import Chart from 'react-apexcharts';
-import RoomList from '../component/roomlist';
-export default function home (){
+import Chart from "react-apexcharts";
+import RoomList from "../component/roomlist";
+
+
+
+export default function Home (){
     const [income, setIncome] = useState({
         options: {
             chart: {
@@ -25,12 +28,12 @@ export default function home (){
             legend: {
                 show: true,
                 position: "bottom",
-                horizontalAlign: 'left',
+                horizontalAlign: "left",
             }
         },
         series: [
             {
-                name: 'Series-1',
+                name: "Series-1",
                 data: [5000, 6000, 4000, 10000, 12000, 5500, 3000, 4500, 5000, 7000, 6500, 6700],
             }
         ],
@@ -51,12 +54,12 @@ export default function home (){
             legend: {
                 show: true,
                 position: "bottom",
-                horizontalAlign: 'left',
+                horizontalAlign: "left",
             }
         },
         series: [
             {
-                name: 'Series-1',
+                name: "Series-1",
                 data: [1000, 2000, 4000, 4500, 6000, 5500, 3000, 4500, 5000, 7000, 6500, 1500],
             }, 
         ],
@@ -94,7 +97,7 @@ export default function home (){
                                             </Box>
                                             </Grid>
                                         </Grid>
-                                        <Typography variant="body1" color={'black'} sx={{marginTop: '-12px',}} letterSpacing={2} gutterBottom>Tenant's</Typography>
+                                        <Typography variant="body1" color={'black'} sx={{marginTop: '-12px',}} letterSpacing={2} gutterBottom>Tenants</Typography>
                                         <Box sx={{bgcolor: '#ffb74d', borderRadius: '5px', display:'flex', justifyContent: 'space-between', width: '95px', padding: '2px', marginTop: '1px'}}>
                                             <TrendingUpOutlinedIcon fontSize="small" sx={{color: 'white', marginLeft: '8px', marginTop: '2px'}}/>
                                             <Typography sx={{fontSize: '15px', marginRight: '10px', color: 'white'}}>50.5%</Typography>
@@ -114,7 +117,7 @@ export default function home (){
                                             </Box>
                                             </Grid>
                                         </Grid>
-                                        <Typography variant="body1" color={'black'} sx={{marginTop: '-10px',}} letterSpacing={2} gutterBottom>Apartment's</Typography>
+                                        <Typography variant="body1" color={'black'} sx={{marginTop: '-10px',}} letterSpacing={2} gutterBottom>Apartments</Typography>
                                         <Box sx={{bgcolor: '#00796b', borderRadius: '5px', display:'flex', justifyContent: 'space-between', width: '95px', padding: '2px', marginTop: '2px'}}>
                                             <TrendingUpOutlinedIcon fontSize="small" sx={{color: 'white', marginLeft: '8px', marginTop: '2px'}}/>
                                             <Typography sx={{fontSize: '15px', marginRight: '10px', color: 'white'}}>50.5%</Typography>
@@ -134,7 +137,7 @@ export default function home (){
                                             </Box>
                                             </Grid>
                                         </Grid>
-                                        <Typography variant="body1" color={'black'} sx={{marginTop: '-10px',}} letterSpacing={2} gutterBottom>Rooms's</Typography>
+                                        <Typography variant="body1" color={'black'} sx={{marginTop: '-10px',}} letterSpacing={2} gutterBottom>Rooms</Typography>
                                         <Box sx={{bgcolor: '#ff3d00', borderRadius: '5px', display:'flex', justifyContent: 'space-between', width: '95px', padding: '2px', marginTop: '2px'}}>
                                             <TrendingUpOutlinedIcon fontSize="small" sx={{color: 'white', marginLeft: '8px', marginTop: '2px'}}/>
                                             <Typography sx={{fontSize: '15px', marginRight: '10px', color: 'white'}}>50.5%</Typography>
@@ -142,10 +145,10 @@ export default function home (){
                                     </Paper>    
                                 </Grid> 
                                 <Grid item xs={12} sm={6} md={4} lg={3}>
-                                    <Paper elevation={2} style={{maxWidth: 490, padding: '25px', marginLeft: '20px', borderRadius: '10px'}}>
-                                        <Grid container justifyContent={'space-between'}>  
+                                    <Paper elevation={2} style={{maxWidth: 490, padding: "25px", marginLeft: "20px", borderRadius: "10px"}}>
+                                        <Grid container justifyContent={"space-between"}>  
                                             <Grid item>
-                                            <Typography variant="h5" sx={{color: '#0277bd', fontWeight: 550}}>₱100,000.00</Typography>
+                                            <Typography variant="h5" sx={{color: "#0277bd", fontWeight: 550}}>₱100,000.00</Typography>
                                             
                                             </Grid>
                                             <Grid item>
@@ -182,7 +185,7 @@ export default function home (){
                                 {/* Room List */}
                                 <Grid item xs={12} lg={7} sx={{maxWidth: '100%'}}>
                                     <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '18px', letterSpacing: '1px', marginTop: '25px', marginLeft: "30px" }}>
-                                        List of Room's
+                                        List of Rooms
                                     </Typography>
                                     <Paper elevation={2} sx={{'@media (max-width: 100px)': {width: 'auto'}, height: '62vh', marginTop: '10px', justifyContent: "center", alignItems: "center", borderRadius: 3, marginLeft: '20px' }}>
                                         <RoomList />
@@ -191,7 +194,7 @@ export default function home (){
                                 {/* Customers */}
                                 <Grid item xs={12} lg={5} sx={{maxWidth: '100%'}}>
                                     <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '18px', letterSpacing: '1px', marginTop: '25px', marginLeft: "30px" }}>
-                                        Customer's
+                                        Customers
                                     </Typography>
                                     <Paper elevation={2} sx={{ '@media (max-width: 100px)': {width: 'auto'}, height: '62vh', marginTop: '20px', justifyContent: "center", alignItems: "center", borderRadius: 3, marginLeft: '20px' }}>
                                         <CustomerTable/>
