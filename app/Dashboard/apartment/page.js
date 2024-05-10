@@ -3,7 +3,7 @@ import  React from 'react';
 import { useState } from 'react';
 import Navbar from '../navbar';
 import Sidebar from '../sidebar';
-import {Button, Grid, Box, Typography, TextField, Paper} from '@mui/material';
+import {Button, Grid, Box, Typography, TextField, Paper, Breadcrumbs, Link} from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import HouseIcon from '@mui/icons-material/House';
 import { useRouter } from 'next/navigation';
@@ -151,14 +151,33 @@ export default function AddApartment(){
     return (
         <>
           <Navbar/>
+          <div className='bgcolor'>
           <Box sx={{ flexGrow: '1', display: 'flex', paddingRight: '1%',}}>
             <Sidebar/>
-            <Grid container spacing={2} sx={{ marginTop: '6rem', marginX: '1rem', flexDirection: 'column' }}>
-              <Box sx={{ width: '100%', marginBottom: '3rem',}}>
+            <Grid container spacing={2} sx={{ marginTop: '9rem', marginX: '1rem', flexDirection: 'column' }}>
+              <Box sx={{ width: '100%', marginBottom: '4rem',}}>
+                  <Grid item xs={12} sx={{marginLeft: '20px'}}>
+                    <Breadcrumbs aria-label="breadcrumb">
+                      <Link underline="hover" color="inherit" href="./home">
+                          Home
+                      </Link>
+                      {/* <Link
+                      underline="hover"
+                      color="inherit"
+                      href="/material-ui/getting-started/installation/"
+                      >
+                          Core
+                      </Link> */}
+                      <Typography color="text.primary">Apartment</Typography>
+                    </Breadcrumbs>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="body1"  sx={{marginLeft: '20px', fontSize: '22px', fontWeight: 'bold', letterSpacing: '1px', marginTop: '20px'}}>
+                        List of Apartment
+                    </Typography>
+                    <hr style={{ width: '100%', backgroundColor: '#ecebee', height: '1px', marginTop: '20px',}} />
+                  </Grid> 
                 <Grid item xs={12} sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row',  justifyContent: 'center', alignItems: 'flex-start', alignItems: 'center', marginBottom: '20px', }}>
-                  <Typography variant="h1" color={'black'} sx={{ fontWeight: 500, fontSize: 28, letterSpacing: 3, marginBottom: isMobile ? '20px' : '0', marginLeft: isMobile ? '-9%' : '0', }}>
-                    List of Apartment
-                  </Typography>
                   <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignItems: isMobile ? 'flex-start' : 'flex-end', marginLeft: isMobile ? '10px' : 'auto'  }}>
                     <Button variant="contained" onClick={handleOpen} sx={{background: '#673ab7','&:hover': {backgroundColor: '#9575cd',}, marginRight: '20px', borderRadius: '20px', p:1.5, }}>
                       <AddCircleIcon sx={{ marginRight: 1 }} />
@@ -338,6 +357,7 @@ export default function AddApartment(){
               </Box>
             </Grid>
           </Box>
+          </div>
         </>
     )
 }

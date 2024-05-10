@@ -1,182 +1,208 @@
 'use client'
-import React from "react"
+import React from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../navbar"
-import {Grid, Card, CardActionArea, CardHeader, CardContent, ListItemIcon, Box, Typography,} from '@mui/material';
+import {useTheme, Grid, Card, CardActionArea, CardHeader, CardContent, ListItemIcon, Box, Typography, Paper} from '@mui/material';
 import GroupOutlinedIcon from '@mui/icons-material/Group';
 import ApartmentOutlinedIcon from '@mui/icons-material/ApartmentOutlined';
 import NightShelterOutlinedIcon from '@mui/icons-material/NightShelterOutlined';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
+import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
+import TrendingDownOutlinedIcon from '@mui/icons-material/TrendingDownOutlined';
+import CustomerTable from '../component/customer';
 import Sidebar from "../sidebar";
-
+import Chart from 'react-apexcharts';
+import RoomList from '../component/roomlist';
 export default function home (){
+    const [income, setIncome] = useState({
+        options: {
+            chart: {
+                id: "basic-line",
+            },
+            xaxis: {
+                categories: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            },
+            legend: {
+                show: true,
+                position: "bottom",
+                horizontalAlign: 'left',
+            }
+        },
+        series: [
+            {
+                name: 'Series-1',
+                data: [5000, 6000, 4000, 10000, 12000, 5500, 3000, 4500, 5000, 7000, 6500, 6700],
+            }
+        ],
+        
+    });
 
+    const [expenses, setExpenses] = useState({
+        options: {
+            chart: {
+                id: "basic-bar",
+            },
+            xaxis: {
+                categories: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            },
+            fill: {
+                colors: ["#9575cd"],
+            },
+            legend: {
+                show: true,
+                position: "bottom",
+                horizontalAlign: 'left',
+            }
+        },
+        series: [
+            {
+                name: 'Series-1',
+                data: [1000, 2000, 4000, 4500, 6000, 5500, 3000, 4500, 5000, 7000, 6500, 1500],
+            }, 
+        ],
+        
+        
+    })
+      
 
     return (
         <>
+       
             <Navbar/>
-            <Box sx={{ flexGrow: '1', display: 'flex', paddingRight: '1%',}}>
-            <Sidebar/>
-            <Grid container spacing={2} sx={{ marginTop: '6rem', marginX: '1rem', display: 'flex', flexDirection: 'column' }}>
-              <Box sx={{ width: '100%', marginBottom: '3rem',}}>
-                <Grid item xs={12}>
-                    <Grid container spacing={2}>  
-                        <Grid item xs={12} sm={6} md={4} lg={3}>
-                            <Card  sx={{ maxWidth: 390, marginTop: '20px', justifyContent: "center", alignItems: "center", borderRadius: 5, marginLeft: '20px',}} elevation={2}>
-                                <CardActionArea  >
-                                    <React.Fragment sx={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
-                                        <CardHeader
-                                            title="5000"
-                                            component="div"
-                                            sx={{ color: 'black', fontWeight: 'bold', fontSize: '10px', height: '5px', marginLeft: 2, marginTop: '30px' }}
+            <div className="bgcolor">
+            <Box sx={{ flexGrow: '1', display: 'flex', marginX: '1%',}}>
+                <Sidebar/>
+                <Grid container spacing={2} sx={{marginTop: '2rem',  display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ width: '100%', marginBottom: '3rem',}}>
+                        <Grid spacing={2} sx={{ marginTop: '6rem', marginX: '1rem', flexDirection: 'column' }}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                <Typography variant="body1" sx={{marginLeft: '20px', fontSize: '22px', fontWeight: 'bold', letterSpacing: '1px'}}>
+                                    Dashboard
+                                </Typography>
+                                </Grid>  
+                                <Grid item xs={12} sm={6} md={4} lg={3}>
+                                    <Paper elevation={2} style={{maxWidth: 490, padding: '25px', marginLeft: '20px', borderRadius: '10px'}}>
+                                        <Grid container justifyContent={'space-between'}>  
+                                            <Grid item>
+                                            <Typography variant="h5" sx={{color: '#ffb74d', fontWeight: 550}}>5000</Typography>
                                             
-                                        />
-                                        <ListItemIcon
-                                            sx={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                marginTop: '-6px',
-                                                width: '100%',
-                                            }}
-                                        >
-                                            <Box sx={{bgcolor: '#6a1b9a', borderRadius: '10px', height: '60px',  display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '15px', marginRight: '30px', marginTop: '-20px', marginLeft: '80%' }}>
-                                                <GroupOutlinedIcon fontSize={'large'} sx={{color: 'white', justifyContent: 'center'}}/>
+                                            </Grid>
+                                            <Grid item>
+                                            <Box   sx={{bgcolor: '#ffb74d', borderRadius: '15px', height: '55px', padding: '13px', justifyContent: 'center' }}>
+                                            <GroupOutlinedIcon fontSize="medium" sx={{color: 'white', fontSize: '30px'}}/>
                                             </Box>
-                                        </ListItemIcon>
-                                    </React.Fragment>
-                                    <Box sx={{marginTop: '-35px',}}>
-                                    <CardContent>
-                                        <Typography variant="body1" sx={{fontSize: '18px', color:'gray', marginLeft:'15px'}}>
-                                            Tenants
-                                        </Typography>
-                                    </CardContent>
-                                    </Box>
-                                </CardActionArea>
-                            </Card>
-                        </Grid> 
-                        <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Card sx={{ maxWidth: 390, marginTop: '20px', justifyContent: "center", alignItems: "center", borderRadius: 5, marginLeft: '20px',}} elevation={2}>
-                            <CardActionArea  >
-                                <React.Fragment sx={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
-                                    <CardHeader
-                                        title="10"
-                                        component="div"
-                                        sx={{ color: 'black', fontWeight: 'bold', fontSize: '10px', height: '5px', marginLeft: 2, marginTop: '30px' }}
-                                    />
-                                    <ListItemIcon
-                                        sx={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            marginTop: '-6px',
-                                            width: '100%',
-                                        }}
-                                    >
-                                        <Box sx={{borderRadius: '10px', height: '60px', bgcolor: '#00796b', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '15px', marginRight: '30px', marginTop: '-20px', marginLeft: '80%' }}>
-                                            <ApartmentOutlinedIcon fontSize={'large'} sx={{color: 'white', justifyContent: 'center'}}/>
+                                            </Grid>
+                                        </Grid>
+                                        <Typography variant="body1" color={'black'} sx={{marginTop: '-12px',}} letterSpacing={2} gutterBottom>Tenant's</Typography>
+                                        <Box sx={{bgcolor: '#ffb74d', borderRadius: '5px', display:'flex', justifyContent: 'space-between', width: '95px', padding: '2px', marginTop: '1px'}}>
+                                            <TrendingUpOutlinedIcon fontSize="small" sx={{color: 'white', marginLeft: '8px', marginTop: '2px'}}/>
+                                            <Typography sx={{fontSize: '15px', marginRight: '10px', color: 'white'}}>50.5%</Typography>
                                         </Box>
-                                    </ListItemIcon>
-                                </React.Fragment>
-                                <Box sx={{marginTop: '-35px'}}>
-                                    <CardContent>
-                                        <Typography variant="body1" sx={{fontSize: '18px', color:'gray', marginLeft: '15px',}}>
-                                            Apartment
-                                        </Typography>
-                                    </CardContent>
-                                </Box>
-                                </CardActionArea>
-                            </Card>
-                        </Grid>  
-                        <Grid item xs={12} sm={6} md={4} lg={3}>
-                            <Card sx={{ maxWidth: 390, marginTop: '20px', justifyContent: "center", alignItems: "center", borderRadius: 5, marginLeft: '20px',}} elevation={2}>
-                                <CardActionArea  >
-                                    <React.Fragment sx={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
-                                        <CardHeader
-                                            title="500"
-                                            component="div"
-                                            sx={{ color: 'black', fontWeight: 'bold', fontSize: '10px', height: '5px', marginLeft: 2, marginTop: '30px' }}
-                                        />
-                                        <ListItemIcon
-                                            sx={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                marginTop: '-6px',
-                                                width: '100%',
-                                            }}
-                                        >
-                                            <Box sx={{ borderRadius: '10px', height: '60px', bgcolor: '#ff3d00', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '15px', marginRight: '30px', marginTop: '-20px', marginLeft: '80%' }}>
-                                                <NightShelterOutlinedIcon fontSize={'large'} sx={{color: 'white', justifyContent: 'center'}}/>
+                                    </Paper>
+                                </Grid> 
+                                <Grid item xs={12} sm={6} md={4} lg={3}>
+                                    <Paper elevation={2} style={{maxWidth: 490, padding: '25px', marginLeft: '20px', borderRadius: '10px'}}>
+                                        <Grid container justifyContent={'space-between'}>  
+                                            <Grid item>
+                                            <Typography variant="h5" sx={{color: '#00796b', fontWeight: 550}}>10</Typography>
+                                            
+                                            </Grid>
+                                            <Grid item>
+                                            <Box   sx={{bgcolor: '#00796b', borderRadius: '15px', height: '55px', padding: '13px', justifyContent: 'center' }}>
+                                            <ApartmentOutlinedIcon fontSize="medium" sx={{color: 'white', fontSize: '30px'}}/>
                                             </Box>
-                                        </ListItemIcon>
-                                    </React.Fragment>
-                                    <Box sx={{marginTop: '-35px'}}>
-                                        <CardContent>
-                                            <Typography variant="body1" sx={{color: 'gray', fontSize: '18px', marginLeft: '15px'}}>
-                                                Rooms
-                                            </Typography>
-                                        </CardContent>
-                                    </Box>
-                                </CardActionArea>
-                            </Card>
-                        </Grid> 
-                        <Grid item xs={12} sm={6} md={4} lg={3}>
-                            <Card sx={{ maxWidth: 390, marginTop: '20px', justifyContent: "center", alignItems: "center", borderRadius: 5, marginLeft: '20px',}} elevation={2}>
-                                <CardActionArea  >
-                                    <React.Fragment sx={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
-                                        <CardHeader
-                                            title="100,000.00"
-                                            component="div"
-                                            sx={{ color: 'black', fontWeight:'bold', fontSize: '10px', height: '5px', marginLeft: 2, marginTop: '30px' }}
-                                        />
-                                        <ListItemIcon
-                                            sx={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                marginTop: '-6px',
-                                                width: '100%',
-                                            }}
-                                        >
-                                            <Box sx={{ borderRadius: '10px', height: '60px', bgcolor: '#0277bd', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '15px', marginRight: '30px', marginTop: '-20px', marginLeft: '80%' }}>
-                                                <AccountBalanceWalletOutlinedIcon fontSize={'large'} sx={{color: 'white', justifyContent: 'center'}}/>
+                                            </Grid>
+                                        </Grid>
+                                        <Typography variant="body1" color={'black'} sx={{marginTop: '-10px',}} letterSpacing={2} gutterBottom>Apartment's</Typography>
+                                        <Box sx={{bgcolor: '#00796b', borderRadius: '5px', display:'flex', justifyContent: 'space-between', width: '95px', padding: '2px', marginTop: '2px'}}>
+                                            <TrendingUpOutlinedIcon fontSize="small" sx={{color: 'white', marginLeft: '8px', marginTop: '2px'}}/>
+                                            <Typography sx={{fontSize: '15px', marginRight: '10px', color: 'white'}}>50.5%</Typography>
+                                        </Box>
+                                    </Paper>
+                                </Grid>  
+                                <Grid item xs={12} sm={6} md={4} lg={3}>
+                                    <Paper elevation={2} style={{maxWidth: 490, padding: '25px', marginLeft: '20px', borderRadius: '10px'}}>
+                                        <Grid container justifyContent={'space-between'}>  
+                                            <Grid item>
+                                            <Typography variant="h5" sx={{color: '#ff3d00', fontWeight: 550}}>500</Typography>
+                                            
+                                            </Grid>
+                                            <Grid item>
+                                            <Box   sx={{bgcolor: '#ff3d00', borderRadius: '15px', height: '55px', padding: '13px', justifyContent: 'center' }}>
+                                            <NightShelterOutlinedIcon fontSize="medium" sx={{color: 'white', fontSize: '30px'}}/>
                                             </Box>
-                                        </ListItemIcon>
-                                    </React.Fragment>
-                                    <Box sx={{marginTop: '-35px'}}>
-                                        <CardContent>
-                                            <Typography variant="body1" sx={{color: 'gray', fontSize: '18px', marginLeft: '15px'}}>
-                                                Income
-                                            </Typography>
-                                        </CardContent>
-                                    </Box>
-                                </CardActionArea>
-                            </Card>
-                        </Grid>
-                        <Grid xs={12} lg={7}>
-                            <Card sx={{ maxWidth: '100%', height: '62vh',   marginTop: '20px', justifyContent: "center", alignItems: "center", borderRadius: 5, marginLeft: '40px',}} elevation={2}>
-                                <CardActionArea>
-                                    <CardContent>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
-                        </Grid>
-                        <Grid xs={12} lg={5} >
-                            <Card Card sx={{ maxWidth: '100%', height: '62vh',  marginTop: '20px', justifyContent: "center", alignItems: "center", borderRadius: 5, marginLeft: '40px',}} elevation={2}>
-                                <CardActionArea>
-                                    <CardContent>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
-                        </Grid>    
-                    </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Typography variant="body1" color={'black'} sx={{marginTop: '-10px',}} letterSpacing={2} gutterBottom>Rooms's</Typography>
+                                        <Box sx={{bgcolor: '#ff3d00', borderRadius: '5px', display:'flex', justifyContent: 'space-between', width: '95px', padding: '2px', marginTop: '2px'}}>
+                                            <TrendingUpOutlinedIcon fontSize="small" sx={{color: 'white', marginLeft: '8px', marginTop: '2px'}}/>
+                                            <Typography sx={{fontSize: '15px', marginRight: '10px', color: 'white'}}>50.5%</Typography>
+                                        </Box>
+                                    </Paper>    
+                                </Grid> 
+                                <Grid item xs={12} sm={6} md={4} lg={3}>
+                                    <Paper elevation={2} style={{maxWidth: 490, padding: '25px', marginLeft: '20px', borderRadius: '10px'}}>
+                                        <Grid container justifyContent={'space-between'}>  
+                                            <Grid item>
+                                            <Typography variant="h5" sx={{color: '#0277bd', fontWeight: 550}}>₱100,000.00</Typography>
+                                            
+                                            </Grid>
+                                            <Grid item>
+                                            <Box   sx={{bgcolor: '#0277bd', borderRadius: 'px', height: '55px', padding: '13px', justifyContent: 'center' }}>
+                                            <AccountBalanceWalletOutlinedIcon fontSize="medium" sx={{color: 'white', fontSize: '30px'}}/>
+                                            </Box>
+                                            </Grid>
+                                        </Grid>
+                                        <Typography variant="body1" color={'black'} sx={{marginTop: '-10px',}} letterSpacing={2} gutterBottom>Income</Typography>
+                                        <Box sx={{bgcolor: '#0277bd', borderRadius: '5px', display:'flex', justifyContent: 'space-between', width: '95px', padding: '2px', marginTop: '2px'}}>
+                                            <TrendingUpOutlinedIcon fontSize="small" sx={{color: 'white', marginLeft: '8px', marginTop: '2px'}}/>
+                                            <Typography sx={{fontSize: '15px', marginRight: '10px', color: 'white'}}>50.5%</Typography>
+                                        </Box>
+                                    </Paper> 
+                                </Grid>
 
-                    
-
+                                <Grid item xs={12} lg={7} sx={{maxWidth: '100%'}}>
+                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '18px', letterSpacing: '1px', marginTop: '55px', marginLeft: "30px" }}>
+                                        Income
+                                    </Typography>
+                                    <Paper elevation={2} sx={{'@media (max-width: 100px)': {width: 'auto'}, height: '62vh', p: 3, marginTop: '10px', justifyContent: "center", alignItems: "center", borderRadius: 3, marginLeft: '20px' }}>
+                                        <Chart options={income.options} series={income.series} type="area" height={500} />
+                                    </Paper>
+                                </Grid>
+                                {/* Expenses Chart */}
+                                <Grid item xs={12} lg={5} sx={{maxWidth: '100%'}}>
+                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '18px', letterSpacing: '1px', marginTop: '55px', marginLeft: "30px" }}>
+                                        Expenses
+                                    </Typography>
+                                    <Paper elevation={2} sx={{'@media (max-width: 100px)': {width: 'auto'}, height: '62vh', p: 2, marginTop: '10px', justifyContent: "center", alignItems: "center", borderRadius: 3, marginLeft: '20px' }}>
+                                        <Chart options={expenses.options} series={expenses.series} type="bar" height={500} />
+                                    </Paper>
+                                </Grid>
+                                {/* Room List */}
+                                <Grid item xs={12} lg={7} sx={{maxWidth: '100%'}}>
+                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '18px', letterSpacing: '1px', marginTop: '25px', marginLeft: "30px" }}>
+                                        List of Room's
+                                    </Typography>
+                                    <Paper elevation={2} sx={{'@media (max-width: 100px)': {width: 'auto'}, height: '62vh', marginTop: '10px', justifyContent: "center", alignItems: "center", borderRadius: 3, marginLeft: '20px' }}>
+                                        <RoomList />
+                                    </Paper>
+                                </Grid>
+                                {/* Customers */}
+                                <Grid item xs={12} lg={5} sx={{maxWidth: '100%'}}>
+                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '18px', letterSpacing: '1px', marginTop: '25px', marginLeft: "30px" }}>
+                                        Customer's
+                                    </Typography>
+                                    <Paper elevation={2} sx={{ '@media (max-width: 100px)': {width: 'auto'}, height: '62vh', marginTop: '20px', justifyContent: "center", alignItems: "center", borderRadius: 3, marginLeft: '20px' }}>
+                                        <CustomerTable/>
+                                    </Paper>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Box>
                 </Grid>
-              </Box>
-            </Grid>
-          </Box>     
+            </Box>
+          </div>    
         </>
     )
 }

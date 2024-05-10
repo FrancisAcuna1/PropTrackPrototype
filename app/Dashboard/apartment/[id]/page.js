@@ -210,14 +210,15 @@ export default function RoomsComponent(){
     return(
         <>
             <Navbar/>
+            <div className='bgcolor'>
             <Box sx={{ flexGrow: '1', display: 'flex', paddingRight: '1%',}}>
             <Sidebar/>
-            <Grid container spacing={2} sx={{ marginTop: '6rem', marginX: '1rem', display: 'flex', flexDirection: 'column' }}>
+            <Grid container spacing={2} sx={{ marginTop: '5rem', display: 'flex', flexDirection: 'column' }}>
               <Box sx={{ width: '100%', marginBottom: '3rem',}}>
-                
+                <Grid spacing={2} sx={{ marginTop: '6rem', marginX: '1rem', flexDirection: 'column' }}>
                   <Grid container spacing={2}>  
-                    <Grid item xs={12}>
-                      <Paper sx={{maxWidth: '65%', margin: 'auto', paddingTop: '20px'}}>
+                    <Grid item xs={12} lg={8} sx={{margin: 'auto'}}>
+                      <Paper sx={{maxWidth: '100%', margin: 'auto', paddingTop: '20px'}}>
                           <Grid container alignItems="center" justifyContent="space-between">
                             <Grid item>
                               <Typography variant="h5" letterSpacing={2} sx={{marginLeft: '20px'}} >
@@ -225,7 +226,7 @@ export default function RoomsComponent(){
                               </Typography>
                             </Grid>
                             <Grid item>
-                              <Button variant="contained" onClick={handleOpen} sx={{background: '#673ab7','&:hover': {backgroundColor: '#9575cd',}, marginLeft: '20px', marginRight: '20px', borderRadius: '20px'}}>
+                              <Button variant="contained" onClick={handleOpen} sx={{background: '#673ab7','&:hover': {backgroundColor: '#9575cd',}, marginLeft: '20px', marginBottom: '5px',marginRight: '20px', borderRadius: '20px'}}>
                                 <AddCircleIcon sx={{ marginRight: 1 }} />
                                   Add Rooms
                               </Button>
@@ -258,27 +259,29 @@ export default function RoomsComponent(){
                             </Grid>
                           </Grid>
                           <DataGrid 
-                            rows={rows} 
-                            columns={column}   
-                            initialState={{
-                                pagination: {
-                                paginationModel: { page: 0, pageSize: 5 },
-                                },
-                            }}
-                            pageSizeOptions={[5, 10]}
-                            checkboxSelection
-                            sx={{maxWidth: '100%', marginTop: '20px', justifyContent: 'center', textAlign: 'center' }} 
-                            // getRowClassName={getRowClassName}
+                              rows={rows} 
+                              columns={column}   
+                              initialState={{
+                                  pagination: {
+                                  paginationModel: { page: 0, pageSize: 8 },
+                                  },
+                              }}
+                              pageSizeOptions={[5, 10]}
+                              checkboxSelection
+                              sx={{ marginTop: '20px', justifyContent: 'center', textAlign: 'center' }} 
+                              // getRowClassName={getRowClassName}
 
                           />
                       </Paper>
                     </Grid>
                   </Grid>
+                </Grid>
+                  
                
               </Box>
             </Grid>
           </Box>
-            
+          </div>
             
         
         </>

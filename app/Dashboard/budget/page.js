@@ -2,7 +2,7 @@
 import React from "react";  
 import { useState } from "react";
 import Navbar from "../navbar";
-import { Box, Grid, Paper, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem,} from '@mui/material'
+import { Box, Grid, Paper, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem, Breadcrumbs, Link} from '@mui/material'
 import { DataGrid  } from '@mui/x-data-grid';
 import PropTypes from 'prop-types';
 import { styled, css } from '@mui/system';
@@ -205,14 +205,36 @@ export default function BudgetTracker(){
     return(
         <>
             <Navbar/>
-            <Box sx={{ flexGrow: '1', display: 'flex', paddingRight: '1%',}}>
+            <div className="bgcolor">
+            <Box sx={{flexGrow: '1', display: 'flex',  marginX: '1%',}}>
             <Sidebar/>
-            <Grid container spacing={2} sx={{ marginTop: '6rem', marginX: '1rem', display: 'flex', flexDirection: 'column' }}>
+            <Grid container spacing={2} sx={{ marginTop: '6rem',  display: 'flex', flexDirection: 'column' }}>
               <Box sx={{ width: '100%', marginBottom: '3rem',}}>
-                {/* <Grid item xs={12}> */}
-                  <Grid container spacing={2}>  
-                    <Grid item xs={12}  lg={8}>
-                      <Paper elevation={3} style={{maxWidth: '100%', paddingTop: '20px',  justifyContent: "center", alignItems: "center", }}>
+                <Grid spacing={2} sx={{ marginTop: '3rem', marginX: '1rem', flexDirection: 'column' }}>
+                  <Grid container spacing={2} >
+                    <Grid item xs={12} sx={{marginLeft: '20px'}}>
+                      <Breadcrumbs aria-label="breadcrumb">
+                        <Link underline="hover" color="inherit" href="./home">
+                            Home
+                        </Link>
+                        {/* <Link
+                        underline="hover"
+                        color="inherit"
+                        href="/material-ui/getting-started/installation/"
+                        >
+                            Core
+                        </Link> */}
+                        <Typography color="text.primary">Budget</Typography>
+                      </Breadcrumbs>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Typography variant="body1"  sx={{marginLeft: '20px', fontSize: '22px', fontWeight: 'bold', letterSpacing: '1px'}}>
+                          Budget
+                      </Typography>
+                      <hr style={{ width: '100%', backgroundColor: '#ecebee', height: '1px', marginTop: '20px',}} />
+                    </Grid>    
+                    <Grid item xs={12} lg={8} sx={{maxWidth: '100%'}}>
+                      <Paper elevation={3} style={{'@media (max-width: 100px)': {width: 'auto'}, marginLeft: '20px', paddingTop: '20px',  justifyContent: "center", alignItems: "center", }}>
                         <Grid container alignItems="center" justifyContent="space-between">
                           <Grid item>
                               <Typography variant="h5" letterSpacing={2} sx={{marginLeft: '20px'}} >
@@ -274,8 +296,8 @@ export default function BudgetTracker(){
                         />
                       </Paper>
                     </Grid>
-                    <Grid item xs={12} lg={4}>
-                      <Paper elevation={3} style={{ padding: '25px',}}>
+                    <Grid item xs={12} lg={4} sx={{maxWidth: "100%"}}>
+                      <Paper elevation={3} style={{ marginLeft: '20px', padding: '25px',}}>
                           <Grid container justifyContent={'space-between'}>  
                             <Grid item>
                               <Typography variant="body1" color={'gray'} letterSpacing={2} gutterBottom>Monthly Expense</Typography>
@@ -292,7 +314,7 @@ export default function BudgetTracker(){
                             <Typography sx={{fontSize: '15px', marginRight: '10px', color: 'white'}}>50.5%</Typography>
                           </Box>
                       </Paper>
-                      <Paper elevation={3} style={{ padding: '25px', marginTop: '15px'}}>
+                      <Paper elevation={3} style={{ marginLeft: '20px', padding: '25px', marginTop: '15px'}}>
                           <Grid container justifyContent={'space-between'}>  
                             <Grid item>
                               <Typography variant="body1" color={'gray'} letterSpacing={2} gutterBottom>Monthly Income</Typography>
@@ -309,7 +331,7 @@ export default function BudgetTracker(){
                             <Typography sx={{fontSize: '15px', marginRight: '10px', color: 'white'}}>50.5%</Typography>
                           </Box>
                       </Paper>
-                      <Paper elevation={3} style={{ padding: '25px', marginTop: '15px'}}>
+                      <Paper elevation={3} style={{  padding: '25px', marginTop: '15px', marginLeft: '20px'}}>
                           <Grid container justifyContent={'space-between'}>  
                             <Grid item>
                               <Typography variant="body1" color={'gray'} letterSpacing={2} gutterBottom>Total Revenue</Typography>
@@ -328,10 +350,11 @@ export default function BudgetTracker(){
                       </Paper>
                     </Grid>
                   </Grid>
-                {/* </Grid> */}
+                </Grid>
               </Box>
             </Grid>
           </Box>
+          </div>
         </>
     )
 

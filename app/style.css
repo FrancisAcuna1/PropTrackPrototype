@@ -1,7 +1,8 @@
 .bgcolor{
     min-height: 100vh;
-    background-color: whitesmoke;
-    
+    background-color: #f1f2f9;
+    width: "100%";
+    padding: "2rem";
 }
 
 .Avialable-row{
@@ -11,3 +12,14 @@
 .Occupied-row{
     color: red; 
 }
+
+.tab-item:hover {
+    background-color: #dbcff0;
+    width: 100%;/* Change background color on hover */
+  }
+  
+      /* Style for tab item text hover */
+.tab-item:hover .MuiTypography-root .tab-icon{
+    color: #6b43af; /* Change text color on hover */
+}
+
