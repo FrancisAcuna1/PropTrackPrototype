@@ -161,13 +161,7 @@ export default function AddApartment(){
                       <Link underline="hover" color="inherit" href="./home">
                           Home
                       </Link>
-                      {/* <Link
-                      underline="hover"
-                      color="inherit"
-                      href="/material-ui/getting-started/installation/"
-                      >
-                          Core
-                      </Link> */}
+                      <Typography color="inherit">Menu</Typography>
                       <Typography color="text.primary">Apartment</Typography>
                     </Breadcrumbs>
                   </Grid>

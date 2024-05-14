@@ -6,7 +6,6 @@ import Sidebar from "../sidebar";
 import { Box, Grid, Paper, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem, Breadcrumbs, Link} from "@mui/material";
 import CustomerTable from "../component/customer";
 
-
 export default function Customer(){
       
 
@@ -36,9 +35,11 @@ export default function Customer(){
                                         <Typography color="text.primary">Customers</Typography>
                                     </Breadcrumbs>
                                 </Grid>
+                             
                                 <Grid item xs={12}>
                                     <Typography variant="body1"  sx={{marginLeft: '20px', fontSize: '22px', fontWeight: 'bold', letterSpacing: '1px'}}>
                                         Customer
+                                        
                                     </Typography>
                                     <hr style={{ width: '100%', backgroundColor: '#ecebee', height: '1px', marginTop: '20px',}} />
                                 </Grid>    

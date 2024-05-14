@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Navbar from "../../navbar";
-import {Button, Grid, Box, Typography, TextField, FormControl, Select, MenuItem, InputLabel, Paper, Chip} from '@mui/material';
+import {Button, Grid, Box, Typography, TextField, FormControl, Select, MenuItem, InputLabel, Paper, Chip, Breadcrumbs, Link} from '@mui/material';
 import { DataGrid  } from '@mui/x-data-grid';
 import PropTypes from 'prop-types';
 import { styled, css } from '@mui/system';
@@ -215,7 +215,7 @@ export default function RoomsComponent(){
             <Sidebar/>
             <Grid container spacing={2} sx={{ marginTop: '5rem', display: 'flex', flexDirection: 'column' }}>
               <Box sx={{ width: '100%', marginBottom: '3rem',}}>
-                <Grid spacing={2} sx={{ marginTop: '6rem', marginX: '1rem', flexDirection: 'column' }}>
+                <Grid spacing={2} sx={{ marginTop: '3rem', marginX: '2rem', flexDirection: 'column' }}>
                   <Grid container spacing={2}>  
                     <Grid item xs={12} lg={8} sx={{margin: 'auto'}}>
                       <Paper sx={{maxWidth: '100%', margin: 'auto', paddingTop: '20px'}}>

@@ -1,6 +1,7 @@
 
 "use client"
 import * as React from 'react';
+import { useRouter } from 'next/navigation';
 import { styled, alpha } from '@mui/material/styles';
 import MuiAppBar  from '@mui/material/AppBar';
 import {Box, Toolbar, IconButton, Typography, InputBase, Badge, MenuItem, Menu} from '@mui/material';
@@ -65,6 +66,7 @@ const AppBar = styled(MuiAppBar, {
 
 
 export default function Navbar() {
+    const router = useRouter();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const updateOpen = UseApp ((state) => state.updateOpen);
@@ -108,7 +110,7 @@ export default function Navbar() {
         onClose={handleMenuClose}
         >
         <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+        <MenuItem onClick={() => router.push('/')}>Log out</MenuItem>
         </Menu>
     );
 

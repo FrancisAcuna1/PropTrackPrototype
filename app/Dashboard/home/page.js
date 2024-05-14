@@ -1,21 +1,16 @@
 "use client"
 import React from "react";
-import { useEffect, useState } from "react";
 import Navbar from "../navbar"
-import {useTheme, Grid, Card, CardActionArea, CardHeader, CardContent, ListItemIcon, Box, Typography, Paper} from "@mui/material";
+import { Grid,  Box, Typography, Paper} from "@mui/material";
 import GroupOutlinedIcon from "@mui/icons-material/Group";
 import ApartmentOutlinedIcon from "@mui/icons-material/ApartmentOutlined";
 import NightShelterOutlinedIcon from "@mui/icons-material/NightShelterOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
-import TrendingDownOutlinedIcon from "@mui/icons-material/TrendingDownOutlined";
 import CustomerTable from "../component/customer";
 import Sidebar from "../sidebar";
 import dynamic from 'next/dynamic';
-// import Chart from "react-apexcharts";
 import RoomList from "../component/roomlist";
-// import IncomeChart from "../component/income";
-// import ExpenseChart from "../component/expenses";
 
 
 const IncomeChartHeader = dynamic(() => import('../component/income'), {
